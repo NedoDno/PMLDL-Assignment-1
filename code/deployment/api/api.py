@@ -17,13 +17,10 @@ def preprocess_image(image_bytes):
 
     # Resize the image to 28x28 pixels
     img_resized = cv2.resize(img, (28, 28))
-
     # Normalize the image (scale pixel values to [0, 1])
     img_normalized = img_resized / 255.0
-
     # Reshape the image to match model input (1, 28, 28)
     img_reshaped = np.expand_dims(img_normalized, axis=0)
-
     return img_reshaped
 
 # Endpoint to predict the number from an image

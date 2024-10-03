@@ -39,16 +39,8 @@ plt.show()
 
 def predict_number(img):
     global model
-    if len(img.shape) == 3 and img.shape[2] == 3:  
-        img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
-    img_resized = cv2.resize(img, (28, 28))
-
-    img_normalized = img_resized / 255.0
-
-    img_reshaped = np.expand_dims(img_normalized, axis=0)
-
-    predictions = model.predict(img_reshaped)
+    predictions = model.predict(img)
 
     predicted_digit = np.argmax(predictions)
 

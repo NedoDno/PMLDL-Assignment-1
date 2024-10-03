@@ -28,7 +28,7 @@ if uploaded_file is not None:
         # Send the image to FastAPI backend
         with st.spinner('Sending the image for prediction...'):
             files = {'file': uploaded_file.getvalue()}
-            response = requests.post("http://host.docker.internal:8000/predict/", files=files)
+            response = requests.post("http://fastapi-backend:8000/predict/", files=files)
 
             if response.status_code == 200:
                 result = response.json()
